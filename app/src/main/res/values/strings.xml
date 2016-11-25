@@ -32,4 +32,6 @@
     <string name="lbl_forgot_password">Forgot password?</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="prompt_password">PROMPT PASSWORD</string>
+
+    <string name="firebase_error_login">Firebase Login Error</string>
 </resources>
