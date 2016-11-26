@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.facebook.FacebookActivity;
+import com.facebook.FacebookSdk;
 
 /**
  * Created by david on 25.11.2016.
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_main);
 
         btn_facebook = (Button) findViewById(R.id.btn_login_facebook);

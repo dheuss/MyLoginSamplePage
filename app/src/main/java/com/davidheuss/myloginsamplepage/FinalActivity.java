@@ -23,6 +23,8 @@ public class FinalActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_final);
 
+        System.out.println("Facebook LOGIN SUCCESS");
+
         if (AccessToken.getCurrentAccessToken() == null) {
             goFacebookLoginActivity();
         }
