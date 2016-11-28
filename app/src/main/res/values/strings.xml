@@ -34,4 +34,19 @@
     <string name="prompt_password">PROMPT PASSWORD</string>
 
     <string name="firebase_error_login">Firebase Login Error</string>
+
+    <string-array name="color">
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Red</item>
+        <item>Black</item>
+        <item>White</item>
+        <item>Orange</item>
+        <item>Purple</item>
+        <item>Gray</item>
+        <item>Brown</item>
+        <item>Lime</item>
+        <item>Navi</item>
+    </string-array>
 </resources>

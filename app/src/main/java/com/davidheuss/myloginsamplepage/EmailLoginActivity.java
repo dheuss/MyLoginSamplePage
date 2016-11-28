@@ -40,7 +40,7 @@ public class EmailLoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(EmailLoginActivity.this, EmailSettingsActivity.class));
+            startActivity(new Intent(EmailLoginActivity.this, ChooseActivity.class));
             finish();
         }
 
@@ -109,7 +109,7 @@ public class EmailLoginActivity extends AppCompatActivity {
                                         Toast.makeText(EmailLoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Intent intent = new Intent(EmailLoginActivity.this, EmailSettingsActivity.class);
+                                    Intent intent = new Intent(EmailLoginActivity.this, ChooseActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }

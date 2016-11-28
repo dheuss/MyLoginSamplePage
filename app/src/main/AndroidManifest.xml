@@ -38,6 +38,10 @@
 
         <activity android:name=".FinalActivity"></activity>
 
+        <activity android:name=".ChooseActivity"></activity>
+
+        <activity android:name=".ProfilActivity"></activity>
+
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation"

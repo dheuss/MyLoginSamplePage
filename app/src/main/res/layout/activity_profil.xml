@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".EmailLoginActivity">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="567dp"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/initial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Please create your profil:"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/surname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/initial"
+                android:layout_marginTop="20dp"
+                android:text="Surname:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/surnameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/initial"
+                android:layout_marginTop="10dp"
+                android:width="200dp"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/lastname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/surname"
+                android:layout_marginTop="20dp"
+                android:text="Lastname:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/lastnameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/surnameText"
+                android:width="200dp"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lastname"
+                android:layout_marginTop="20dp"
+                android:text="Email:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/emailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/lastnameText"
+                android:width="200dp"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/email"
+                android:layout_marginTop="20dp"
+                android:text="Age:"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/ageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/emailText"
+                android:width="200dp"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/age"
+                android:layout_marginTop="20dp"
+                android:text="Sex:"
+                android:textSize="20dp" />
+
+            <RadioGroup
+                android:id="@+id/sexRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/ageText"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/maleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClickedSex"
+                    android:text="male                  " />
+
+                <RadioButton
+                    android:id="@+id/femaleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClickedSex"
+                    android:text="femal" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sex"
+                android:layout_marginTop="20dp"
+                android:text="Favourite Color:"
+                android:textSize="20dp" />
+
+            <Spinner
+                android:id="@+id/colorText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/sexRadioGroup"
+                android:layout_marginTop="20dp"
+                android:entries="@array/color"></Spinner>
+
+            <!-- Save Button -->
+
+            <Button
+                android:id="@+id/btn_login_facebook"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dip"
+                android:layout_marginBottom="20dp"
+                android:background="@color/colorAccent"
+                android:text="SAVE"
+                android:textColor="@android:color/black"
+                android:layout_below="@+id/color"/>
+
+        </RelativeLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</ScrollView>
