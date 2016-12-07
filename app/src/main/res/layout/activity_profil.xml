@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@color/colorPrimary">
 
     <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,7 +16,6 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="567dp"
-            android:background="@color/colorPrimary"
             android:orientation="vertical"
             android:padding="@dimen/activity_horizontal_margin">
 
@@ -136,35 +136,91 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/color"
+                android:id="@+id/smoker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sex"
                 android:layout_marginTop="20dp"
-                android:text="Favourite Color:"
+                android:text="Smoker:"
                 android:textSize="20dp" />
 
             <Spinner
-                android:id="@+id/colorText"
+                android:id="@+id/smokerText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/sexRadioGroup"
                 android:layout_marginTop="20dp"
-                android:entries="@array/color"></Spinner>
+                android:entries="@array/smoker"></Spinner>
+
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/smokerText"
+                android:layout_marginTop="20dp"
+                android:text="Duration:"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/durationText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/smokerText"
+                android:width="200dp"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/minSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/duration"
+                android:layout_marginTop="20dp"
+                android:text="min Size:"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/minSizeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/durationText"
+                android:width="200dp"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/maxSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/minSize"
+                android:layout_marginTop="20dp"
+                android:text="max Size:"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/maxSizeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/minSizeText"
+                android:width="200dp"
+                android:inputType="number" />
 
             <!-- Save Button -->
 
             <Button
-                android:id="@+id/btn_login_facebook"
+                android:id="@+id/saveButton"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dip"
                 android:layout_marginBottom="20dp"
                 android:background="@color/colorAccent"
                 android:text="SAVE"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
-                android:layout_below="@+id/color"/>
+                android:layout_below="@+id/maxSize"
+                android:textSize="20dp"/>
 
         </RelativeLayout>
     </android.support.design.widget.CoordinatorLayout>

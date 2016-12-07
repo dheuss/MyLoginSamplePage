@@ -22,6 +22,7 @@ public class ChooseActivity extends AppCompatActivity {
 
     private Button profilButton;
     private Button settingsButton;
+    private Button swipeViewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -49,6 +50,7 @@ public class ChooseActivity extends AppCompatActivity {
 
         profilButton = (Button) findViewById(R.id.btn_profil);
         settingsButton = (Button) findViewById(R.id.btn_settings);
+        swipeViewButton = (Button) findViewById(R.id.btn_swipe);
 
         profilButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +63,13 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onClick (View v) {
                 startActivity(new Intent(ChooseActivity.this, EmailSettingsActivity.class));
+            }
+        });
+
+        swipeViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ChooseActivity.this, SwipeActivity.class));
             }
         });
     }

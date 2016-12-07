@@ -44,6 +44,18 @@
             android:text="SETTINGS"
             android:textColor="@android:color/black" />
 
+        <!-- SwipeView -->
+
+        <Button
+            android:id="@+id/btn_swipe"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@color/colorAccent"
+            android:text="SWIPE VIEW"
+            android:textColor="@android:color/black"
+            />
+
 
     </LinearLayout>
 
