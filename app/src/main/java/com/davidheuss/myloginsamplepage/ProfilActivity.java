@@ -11,8 +11,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by david on 26.11.2016.
@@ -22,6 +28,8 @@ public class ProfilActivity extends AppCompatActivity {
 
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
+    private DatabaseReference mDatabase;
+    private Firebase ref;
 
     private EditText surnameText;
     private EditText lastnameText;
@@ -36,6 +44,16 @@ public class ProfilActivity extends AppCompatActivity {
 
     private Button saveButton;
 
+    private String surnameString;
+    private String lastnameString;
+    private String emailString;
+    private String ageString;
+    private String sexString;
+    private String smokerString;
+    private String durationString;
+    private String minSizeString;
+    private String maxSizeString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -43,6 +61,7 @@ public class ProfilActivity extends AppCompatActivity {
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
+        ref = new Firebase("https://myloginsamplepage.firebaseio.com/");
 
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -60,6 +79,8 @@ public class ProfilActivity extends AppCompatActivity {
             }
         };
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         surnameText = (EditText)findViewById(R.id.surnameText);
         lastnameText = (EditText)findViewById(R.id.lastnameText);
         emailText = (EditText)findViewById(R.id.emailText);
@@ -72,10 +93,50 @@ public class ProfilActivity extends AppCompatActivity {
 
         saveButton = (Button)findViewById(R.id.saveButton);
 
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
+
         saveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                System.out.println(user.getUid().toString());
+                surnameString = surnameText.getText().toString();
+                lastnameString = lastnameText.getText().toString();
+                emailString = emailText.getText().toString();
+                ageString = ageText.getText().toString();
+                smokerString = smokerText.getSelectedItem().toString();
+                durationString = durationText.getText().toString();
+                minSizeString = minSizeText.getText().toString();
+                maxSizeString = maxSizeText.getText().toString();
+
+                mDatabase.child(user.getUid())
+                        .child("surname").setValue(surnameString);
+                mDatabase.child(user.getUid())
+                        .child("lastname").setValue(lastnameString);
+                mDatabase.child(user.getUid())
+                        .child("email").setValue(emailString);
+                mDatabase.child(user.getUid())
+                        .child("age").setValue(ageString);
+                mDatabase.child(user.getUid())
+                        .child("sex").setValue(sexString);
+                mDatabase.child(user.getUid())
+                        .child("smoker").setValue(smokerString);
+                mDatabase.child(user.getUid())
+                        .child("duration").setValue(durationString);
+                mDatabase.child(user.getUid())
+                        .child("minSize").setValue(minSizeString);
+                mDatabase.child(user.getUid())
+                        .child("maxSize").setValue(maxSizeString);
             }
         });
     }
@@ -85,11 +146,11 @@ public class ProfilActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.maleRadioButton:
                 if (checked)
-                    System.out.println("MALE SEX");
+                    sexString = "male";
                 break;
             case R.id.femaleRadioButton:
                 if (checked)
-                    System.out.println("FEMALSE SEX");
+                    sexString = "female";
                 break;
         }
     }
