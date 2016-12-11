@@ -247,6 +247,7 @@ public class EmailSettingsActivity extends AppCompatActivity{
     //sign out method
     public void signOut() {
         auth.signOut();
+        startActivity(new Intent(EmailSettingsActivity.this, MainActivity.class));
     }
 
     @Override

@@ -24,7 +24,7 @@
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".FacebookLoginActivity" />
 
-        <!-- <activity android:name=".GoogleLoginActivity"></activity> -->
+        <activity android:name=".GoogleLoginActivity"></activity>
 
         <activity android:name=".FinalActivity" />
         <activity android:name=".ChooseActivity">

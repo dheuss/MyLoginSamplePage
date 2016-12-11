@@ -32,6 +32,7 @@ public class EmailLoginActivity extends AppCompatActivity {
     private Button btnSignup;
     private Button btnLogin;
     private Button btnReset;
+    private Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstaceState) {
@@ -56,6 +57,7 @@ public class EmailLoginActivity extends AppCompatActivity {
         btnSignup = (Button) findViewById(R.id.btn_signup);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
+        btnBack = (Button) findViewById(R.id.btn_back);
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
@@ -64,6 +66,13 @@ public class EmailLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EmailLoginActivity.this, SignupActivity.class));
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(EmailLoginActivity.this, MainActivity.class));
             }
         });
 

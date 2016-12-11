@@ -88,6 +88,15 @@
             android:textColor="@color/white"
             android:textSize="15dp" />
 
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@color/colorAccent"
+            android:text="BACK"
+            android:textColor="@android:color/black"/>
+
     </LinearLayout>
 
     <ProgressBar
