@@ -29,7 +29,6 @@ public class ProfilActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     private DatabaseReference mDatabase;
-    private Firebase ref;
 
     private EditText surnameText;
     private EditText lastnameText;
@@ -61,7 +60,6 @@ public class ProfilActivity extends AppCompatActivity {
 
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
-        ref = new Firebase("https://myloginsamplepage.firebaseio.com/");
 
         //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
