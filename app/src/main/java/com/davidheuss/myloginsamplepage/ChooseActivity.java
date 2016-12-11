@@ -24,6 +24,7 @@ public class ChooseActivity extends AppCompatActivity {
     private Button settingsButton;
     private Button swipeViewButton;
     private Button firebasebutton;
+    private Button stuffButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -53,6 +54,14 @@ public class ChooseActivity extends AppCompatActivity {
         settingsButton = (Button) findViewById(R.id.btn_settings);
         swipeViewButton = (Button) findViewById(R.id.btn_swipe);
         firebasebutton = (Button) findViewById(R.id.btn_firebase);
+        stuffButton = (Button) findViewById(R.id.btn_stuff);
+
+        stuffButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                startActivity(new Intent(ChooseActivity.this, StuffActivity.class));
+            }
+        });
 
         profilButton.setOnClickListener(new View.OnClickListener() {
             @Override

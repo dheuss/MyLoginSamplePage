@@ -41,4 +41,5 @@
         <item>Party Smoker</item>
     </string-array>
     <string name="title_activity_firebase">FirebaseActivity</string>
+    <string name="title_activity_stuff">StuffActivity</string>
 </resources>
