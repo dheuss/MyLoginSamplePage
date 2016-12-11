@@ -40,4 +40,5 @@
         <item>YES</item>
         <item>Party Smoker</item>
     </string-array>
+    <string name="title_activity_firebase">FirebaseActivity</string>
 </resources>

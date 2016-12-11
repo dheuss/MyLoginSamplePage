@@ -23,6 +23,7 @@ public class ChooseActivity extends AppCompatActivity {
     private Button profilButton;
     private Button settingsButton;
     private Button swipeViewButton;
+    private Button firebasebutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -42,7 +43,7 @@ public class ChooseActivity extends AppCompatActivity {
                 if (user == null) {
                     // user auth state is changed - user is null
                     // launch login activity
-                    startActivity(new Intent(ChooseActivity.this, EmailLoginActivity.class));
+                    startActivity(new Intent(ChooseActivity.this, MainActivity.class));
                     finish();
                 }
             }
@@ -51,6 +52,7 @@ public class ChooseActivity extends AppCompatActivity {
         profilButton = (Button) findViewById(R.id.btn_profil);
         settingsButton = (Button) findViewById(R.id.btn_settings);
         swipeViewButton = (Button) findViewById(R.id.btn_swipe);
+        firebasebutton = (Button) findViewById(R.id.btn_firebase);
 
         profilButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +72,13 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ChooseActivity.this, SwipeActivity.class));
+            }
+        });
+
+        firebasebutton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(ChooseActivity.this, FirebaseActivity.class));
             }
         });
     }

@@ -26,10 +26,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfilActivity extends AppCompatActivity {
 
+    //Firebase
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
     private DatabaseReference mDatabase;
 
+    //xml refs
     private EditText surnameText;
     private EditText lastnameText;
     private EditText emailText;
@@ -40,9 +42,9 @@ public class ProfilActivity extends AppCompatActivity {
     private EditText durationText;
     private EditText minSizeText;
     private EditText maxSizeText;
-
     private Button saveButton;
 
+    //Strings for xml refs
     private String surnameString;
     private String lastnameString;
     private String emailString;
@@ -58,27 +60,23 @@ public class ProfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
 
-        //get firebase auth instance
+        //Firebase
+        Firebase.setAndroidContext(this);
         auth = FirebaseAuth.getInstance();
-
-        //get current user
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user == null) {
-                    // user auth state is changed - user is null
-                    // launch login activity
                     startActivity(new Intent(ProfilActivity.this, EmailLoginActivity.class));
                     finish();
                 }
             }
         };
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
+        //initilize xml parts
         surnameText = (EditText)findViewById(R.id.surnameText);
         lastnameText = (EditText)findViewById(R.id.lastnameText);
         emailText = (EditText)findViewById(R.id.emailText);
@@ -88,22 +86,22 @@ public class ProfilActivity extends AppCompatActivity {
         durationText = (EditText)findViewById(R.id.durationText);
         minSizeText = (EditText)findViewById(R.id.minSizeText);
         maxSizeText = (EditText)findViewById(R.id.maxSizeText);
-
         saveButton = (Button)findViewById(R.id.saveButton);
 
-
+        //person object
+        Person person = new Person();
 
         saveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                surnameString = surnameText.getText().toString();
-                lastnameString = lastnameText.getText().toString();
-                emailString = emailText.getText().toString();
-                ageString = ageText.getText().toString();
-                smokerString = smokerText.getSelectedItem().toString();
-                durationString = durationText.getText().toString();
-                minSizeString = minSizeText.getText().toString();
-                maxSizeString = maxSizeText.getText().toString();
+                surnameString = surnameText.getText().toString().trim();
+                lastnameString = lastnameText.getText().toString().trim();
+                emailString = emailText.getText().toString().trim();
+                ageString = ageText.getText().toString().trim();
+                smokerString = smokerText.getSelectedItem().toString().trim();
+                durationString = durationText.getText().toString().trim();
+                minSizeString = minSizeText.getText().toString().trim();
+                maxSizeString = maxSizeText.getText().toString().trim();
 
                 mDatabase.child(user.getUid())
                         .child("surname").setValue(surnameString);

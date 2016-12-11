@@ -17,13 +17,7 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".EmailSettingsActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".EmailLoginActivity" />
@@ -33,13 +27,23 @@
         <!-- <activity android:name=".GoogleLoginActivity"></activity> -->
 
         <activity android:name=".FinalActivity" />
-        <activity android:name=".ChooseActivity" />
+        <activity android:name=".ChooseActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ProfilActivity" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
-        <activity android:name=".SwipeActivity"></activity>
+        <activity android:name=".SwipeActivity" />
+        <activity
+            android:name=".FirebaseActivity"
+            android:label="@string/title_activity_firebase"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
