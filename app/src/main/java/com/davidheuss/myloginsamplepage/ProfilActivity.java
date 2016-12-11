@@ -93,19 +93,7 @@ public class ProfilActivity extends AppCompatActivity {
 
         saveButton = (Button)findViewById(R.id.saveButton);
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
 
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + firebaseError.getMessage());
-            }
-        });
 
         saveButton.setOnClickListener(new View.OnClickListener(){
             @Override
