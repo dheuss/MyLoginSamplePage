@@ -80,12 +80,9 @@ public class GoogleLoginActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
-                // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
-
             } else {
-                // Google Sign In failed, update UI appropriately
 
             }
         }
@@ -98,27 +95,12 @@ public class GoogleLoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener() {
                     @Override
                     public void onComplete(@NonNull Task task) {
-
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-
-                            Toast.makeText(GoogleLoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(GoogleLoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         } else {
-
-                            Toast.makeText(GoogleLoginActivity.this, "Login Successful.",
-                                    Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(GoogleLoginActivity.this, "Login Successful.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(GoogleLoginActivity.this, ChooseActivity.class));
-
                         }
-
-
-
-                        // ...
                     }
                 });
 
